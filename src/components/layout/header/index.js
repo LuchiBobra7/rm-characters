@@ -1,7 +1,7 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Search from "./Search";
+import SearchForm from "./SearchForm";
 import Logo from "./Logo";
 import MobileFilters from "./MobileFilters";
 import { withStyles } from "@material-ui/core/styles";
@@ -39,8 +39,8 @@ const Header = ({ classes }) => (
         <div className={`${classes.container}`}>
           <Logo />
           <div className={classes.grow} />
-          <Search />
-          <MobileFilters />
+            <SearchForm />
+            <MobileFilters />
         </div>
       </Toolbar>
     </AppBar>

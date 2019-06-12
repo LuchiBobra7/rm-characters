@@ -1,4 +1,4 @@
-import React, { useContext, useState, Fragment } from "react";
+import React, {  Fragment, useContext, useState, useRef } from "react";
 import InputBase from "@material-ui/core/InputBase";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
@@ -74,9 +74,18 @@ const styles = theme => ({
   }
 });
 
-const Search = ({ classes }) => {
+const SearchForm = ({ classes }) => {
+  
   const { fetchFilteredData } = useContext(Context);
-  const [visibleSearch, showSearchForm] = useState(false);
+  const [visibleSearch, setVisibleSearch] = useState(false);
+  const inputEl = useRef(null);
+
+  const showSearchForm = async () => {
+    await setVisibleSearch(!visibleSearch);
+    console.log(inputEl)
+    await inputEl.current.focus();
+  };
+
   return (
     <Fragment>
       <form
@@ -91,6 +100,8 @@ const Search = ({ classes }) => {
           onChange={e => fetchFilteredData(e)}
           name="name"
           autoComplete="off"
+          inputRef={inputEl}
+          autoFocus={true}
           classes={{
             root: classes.inputRoot,
             input: classes.inputInput
@@ -101,7 +112,7 @@ const Search = ({ classes }) => {
         <Button
           size="small"
           color="primary"
-          onClick={() => showSearchForm(false)}
+          onClick={() => showSearchForm()}
           className={classes.closeSearchBtn}
         >
           <CloseIcon />
@@ -110,7 +121,7 @@ const Search = ({ classes }) => {
       <Button
         size="small"
         color="primary"
-        onClick={() => showSearchForm(true)}
+        onClick={() => showSearchForm()}
         className={classes.toggleSearchBtn}
       >
         <SearchIcon />
@@ -119,4 +130,4 @@ const Search = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Search);
+export default withStyles(styles)(SearchForm);
