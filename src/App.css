@@ -1,0 +1,74 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+  min-width: 280px;
+  max-width: 860px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.container-grid {
+  display: grid;
+  grid-column-gap: 20px;
+}
+
+@media (min-width: 992px) {
+  .container-grid {
+    grid-template-columns: 7fr 1fr;
+  }
+}
+
+.title {
+  line-height: 1.333;
+  font-family: "Margarine";
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin: 0 0 0.5rem;
+}
+
+dl.grid-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin: 0;
+}
+
+.grid-list dd,
+.grid-list dt {
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+.grid-list dd {
+  color: #009be5;
+  position: relative;
+  text-align: right;
+  display: grid;
+  white-space: nowrap;
+  grid-column-gap: 5px;
+  grid-template-columns: 1fr fit-content(100px);
+}
+
+.grid-list dd:before {
+  content: "";
+  width: 100%;
+  position: relative;
+  bottom: 5px;
+  border-bottom: 1px dashed #eee;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.mb {
+  margin-bottom: 1.5rem !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
