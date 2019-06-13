@@ -69,6 +69,8 @@ const filtersList = [
     ]
   }
 ];
+
+
 const CharactersFilters = ({ classes }) => {
   
   const { filters, fetchFilteredData } = useContext(Context);
