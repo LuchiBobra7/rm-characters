@@ -47,16 +47,32 @@ const filtersList = [
     defaultValue: "",
     values: [
       {
-        value: "alien",
-        label: "Alien"
-      },
-      {
         value: "human",
         label: "Human"
       },
       {
+        value: "alien",
+        label: "Alien"
+      },
+      {
         value: "robot",
         label: "Robot"
+      },
+      {
+        value: "animal",
+        label: "Animal"
+      },
+      {
+        value: "mytholog",
+        label: "Mytholog"
+      },
+      {
+        value: "disease",
+        label: "Disease"
+      },
+      {
+        value: "poopybutthole",
+        label: "Poopybuttholeg"
       },
       {
         value: "unknown",

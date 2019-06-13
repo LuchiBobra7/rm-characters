@@ -65,11 +65,11 @@ const CharactersPage = ({ classes }) => {
             {err && (
               <Fragment>
                 <h2 className="title">No results</h2>
-                <img alt="no results" src={NO_RESULTS_IMG} />
+                <img alt="no results" className="img-fluid" src={NO_RESULTS_IMG} />
               </Fragment>
             )}
             <CharactersList />
-            {list.length && pagesLength > 1 && (
+            {!!list.length && pagesLength > 1 && (
               <Pagination
                 limit={limit}
                 page={page}

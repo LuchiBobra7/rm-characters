@@ -16,16 +16,13 @@ const styles = theme => ({
     boxShadow: "0 1px 7px rgba(0, 0, 0, .35)",
     zIndex: 100
   },
-  container: {
-    display: "flex",
-    maxWidth: "860px",
-    width: "100%",
-    margin: "0 auto",
-    alignItems: "center",
-    flexWrap: "wrap"
-  },
   header: {
     minHeight: "60px"
+  },
+  container: {
+    width: "100%",
+    alignItems: "center",
+    flexWrap: "wrap"
   },
   grow: {
     flexGrow: 1
@@ -36,7 +33,7 @@ const Header = ({ classes }) => (
   <div className={classes.root}>
     <AppBar position="fixed" className={classes.appbar}>
       <Toolbar className={classes.header} color="default">
-        <div className={`${classes.container}`}>
+        <div className={`container d-flex ${classes.container}`}>
           <Logo />
           <div className={classes.grow} />
             <SearchForm />

@@ -1,4 +1,4 @@
-import React, {  Fragment, useContext, useState, useRef } from "react";
+import React, {  Fragment, useContext, useState, useEffect, useRef } from "react";
 import InputBase from "@material-ui/core/InputBase";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
@@ -76,15 +76,22 @@ const styles = theme => ({
 
 const SearchForm = ({ classes }) => {
   
-  const { fetchFilteredData } = useContext(Context);
+  const { filters, fetchFilteredData, setFilters } = useContext(Context);
   const [visibleSearch, setVisibleSearch] = useState(false);
   const inputEl = useRef(null);
 
-  const showSearchForm = async () => {
+  // Toggle search form for sm devices
+  const toggleSearchForm = async (e) => {
     await setVisibleSearch(!visibleSearch);
-    console.log(inputEl)
     await inputEl.current.focus();
+    inputEl.current.value = filters.name
   };
+
+  //Clear name filtering after search form closed
+  useEffect(() => {
+    !visibleSearch && setFilters({...filters, name: ''});
+  }, [visibleSearch]);
+
 
   return (
     <Fragment>
@@ -112,7 +119,7 @@ const SearchForm = ({ classes }) => {
         <Button
           size="small"
           color="primary"
-          onClick={() => showSearchForm()}
+          onClick={() => toggleSearchForm()}
           className={classes.closeSearchBtn}
         >
           <CloseIcon />
@@ -121,7 +128,7 @@ const SearchForm = ({ classes }) => {
       <Button
         size="small"
         color="primary"
-        onClick={() => showSearchForm()}
+        onClick={() => toggleSearchForm()}
         className={classes.toggleSearchBtn}
       >
         <SearchIcon />

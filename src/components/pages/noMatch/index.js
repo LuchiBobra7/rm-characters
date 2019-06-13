@@ -6,7 +6,7 @@ const NoMatch = () => (
   <Layout>
     <div className="container text-center">
       <h2 className="title">404, Page not found</h2>
-      <img alt="no results" src={NO_MATCH_IMG} />
+      <img alt="no results" className="img-fluid" src={NO_MATCH_IMG} />
     </div>
   </Layout>
 );

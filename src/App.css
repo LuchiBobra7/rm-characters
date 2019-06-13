@@ -5,7 +5,7 @@ a {
 
 .container {
   margin: 0 auto;
-  min-width: 280px;
+  min-width: 320px;
   max-width: 860px;
   padding: 0 20px;
   position: relative;
@@ -71,4 +71,8 @@ dl.grid-list {
 
 .d-flex {
   display: flex !important;
+}
+
+.img-fluid {
+  max-width: 100% !important;
 }
