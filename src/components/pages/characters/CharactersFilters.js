@@ -63,18 +63,6 @@ const filtersList = [
         label: "Animal"
       },
       {
-        value: "mytholog",
-        label: "Mytholog"
-      },
-      {
-        value: "disease",
-        label: "Disease"
-      },
-      {
-        value: "poopybutthole",
-        label: "Poopybuttholeg"
-      },
-      {
         value: "unknown",
         label: "Unknown"
       }
