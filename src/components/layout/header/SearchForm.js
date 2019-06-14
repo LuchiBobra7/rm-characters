@@ -83,13 +83,14 @@ const SearchForm = ({ classes }) => {
   // Toggle search form for sm devices
   const toggleSearchForm = async (e) => {
     await setVisibleSearch(!visibleSearch);
-    await inputEl.current.focus();
-    inputEl.current.value = filters.name
+    
   };
 
-  //Clear name filtering after search form closed
+  //Focus for open input, clear name filtering after search form closed
   useEffect(() => {
-    !visibleSearch && setFilters({...filters, name: ''});
+    !!visibleSearch && inputEl.current.focus();
+    setFilters({...filters, name: ''});
+    inputEl.current.value = ''
   }, [visibleSearch]);
 
 
@@ -108,7 +109,6 @@ const SearchForm = ({ classes }) => {
           name="name"
           autoComplete="off"
           inputRef={inputEl}
-          autoFocus={true}
           classes={{
             root: classes.inputRoot,
             input: classes.inputInput
