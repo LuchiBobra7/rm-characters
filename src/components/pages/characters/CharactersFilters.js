@@ -5,6 +5,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Context from "../../../Context";
+import PropTypes from "prop-types";
 
 const filtersList = [
   {
@@ -12,14 +13,8 @@ const filtersList = [
     name: "gender",
     defaultValue: "",
     values: [
-      {
-        value: "male",
-        label: "Male"
-      },
-      {
-        value: "female",
-        label: "Female"
-      }
+     "Male",
+     "Female"
     ]
   },
   {
@@ -27,49 +22,23 @@ const filtersList = [
     name: "status",
     defaultValue: "",
     values: [
-      {
-        value: "alive",
-        label: "Alive"
-      },
-      {
-        value: "dead",
-        label: "Dead"
-      },
-      {
-        value: "unknown",
-        label: "Unknown"
-      }
-    ]
-  },
+       "Alive",
+       "Dead",
+       "Unknown"
+      ]
+  },    
   {
     label: "Species",
     name: "species",
     defaultValue: "",
     values: [
-      {
-        value: "human",
-        label: "Human"
-      },
-      {
-        value: "alien",
-        label: "Alien"
-      },
-      {
-        value: "robot",
-        label: "Robot"
-      },
-      {
-        value: "animal",
-        label: "Animal"
-      },
-      {
-        value: "unknown",
-        label: "Unknown"
-      }
+      "Alien",
+      "Human",
+      "Robot",
+      "Unknown"
     ]
   }
 ];
-
 
 const CharactersFilters = ({ classes }) => {
   
@@ -101,9 +70,9 @@ const CharactersFilters = ({ classes }) => {
               {item.values.map((item, i) => (
                 <FormControlLabel
                   key={uid(i)}
-                  value={item.value}
+                  value={item.toLowerCase()}
                   control={<Radio color="primary" />}
-                  label={item.label}
+                  label={item}
                 />
               ))}
             </RadioGroup>
@@ -113,5 +82,11 @@ const CharactersFilters = ({ classes }) => {
     </Fragment>
   );
 };
+
+CharactersFilters.propTypes = {
+  setFilters: PropTypes.func,
+  fetchFilteredData: PropTypes.func
+};
+
 
 export default CharactersFilters;

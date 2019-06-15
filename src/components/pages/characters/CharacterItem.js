@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import { DEFAULT_CHARACTER_IMG } from "../../../api";
+import PropTypes from "prop-types";
 
 const styles = theme => ({
   card: {
@@ -57,5 +58,14 @@ const CharacterItem = ({ classes, item }) => (
     </CardContent>
   </Card>
 );
+
+CharacterItem.propTypes = {
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired
+  })
+};
 
 export default withStyles(styles)(CharacterItem);

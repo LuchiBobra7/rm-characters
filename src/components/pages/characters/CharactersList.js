@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from "react";
 import CharacterItem from "./CharacterItem";
 import { withStyles } from "@material-ui/core/styles";
 import Context from "../../../Context";
+import PropTypes from "prop-types";
 
 const styles = theme => ({
   root: {
@@ -37,6 +38,10 @@ const CharactersList = props => {
       {list && list.map(item => <CharacterItem key={item.id} item={item} />)}
     </Fragment>
   );
+};
+
+CharactersList.propTypes = {
+  item: PropTypes.arrayOf(PropTypes.shape(CharacterItem.proptypes))
 };
 
 export default withStyles(styles)(CharactersList);

@@ -8,6 +8,7 @@ import Context from "../../../Context";
 import Pagination from "material-ui-flat-pagination";
 import ResetFiltersBtn from "../../ui/buttons/ResetFiltersBtn";
 import { NO_RESULTS_IMG } from "../../../api";
+import PropTypes from "prop-types";
 
 const styles = theme => ({
   aside: {
@@ -65,7 +66,11 @@ const CharactersPage = ({ classes }) => {
             {err && (
               <Fragment>
                 <h2 className="title">No results</h2>
-                <img alt="no results" className="img-fluid" src={NO_RESULTS_IMG} />
+                <img
+                  alt="no results"
+                  className="img-fluid"
+                  src={NO_RESULTS_IMG}
+                />
               </Fragment>
             )}
             <CharactersList />
@@ -89,6 +94,16 @@ const CharactersPage = ({ classes }) => {
       </Layout>
     </Context.Provider>
   );
+};
+
+CharactersPage.propTypes = {
+  list: PropTypes.array,
+  filters: PropTypes.shape({
+    gender: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  })
 };
 
 export default withStyles(styles)(CharactersPage);
